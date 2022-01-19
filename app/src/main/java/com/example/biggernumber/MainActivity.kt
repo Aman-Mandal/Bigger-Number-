@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import kotlin.random.Random
 
 
@@ -44,13 +45,19 @@ class MainActivity : AppCompatActivity() {
         val rightNum = right_btn.text.toString().toInt()
         val isAnswerCorrect = if (isLeftButtonSelected) leftNum > rightNum else rightNum > leftNum
 
+        val toastMessage : String
+        val backgroundColor : Int
+
         if(isAnswerCorrect){
-            left_btn.setBackgroundColor(Color.GREEN)
-            Toast.makeText(this, "Correct",Toast.LENGTH_SHORT).show()
+            backgroundColor = Color.GREEN
+            toastMessage = "Correct!"
         }
         else{
-            left_btn.setBackgroundColor(Color.RED)
-            Toast.makeText(this, "Wrong!",Toast.LENGTH_SHORT).show()
+            backgroundColor = Color.RED
+            toastMessage = "Wrong!"
         }
+        Toast.makeText(this,toastMessage,Toast.LENGTH_SHORT).show()
+        val background = findViewById<ConstraintLayout>(R.id.backgroundView)
+        background.setBackgroundColor(backgroundColor)
     }
 }
