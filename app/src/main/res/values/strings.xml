@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BiggerNumber</string>
+    <string name="biggerNumber">Guess the Bigger Number</string>
+    <string name="text2_largerNum">Press the number which contains the larger number</string>
+</resources>
